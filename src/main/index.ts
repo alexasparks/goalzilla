@@ -17,6 +17,7 @@ app.on('ready', () => {
         webPreferences: {
             sandbox: true,
         },
+        titleBarStyle: 'hidden',
     });
 
     if (process.env.NODE_ENV === "development") {
