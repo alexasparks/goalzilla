@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
     entry: './src/renderer/index.tsx',
@@ -7,6 +8,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "./public/index.html",
         }),
+        new webpack.HotModuleReplacementPlugin(),
     ],
     devServer: {
         port: 3001,
@@ -14,7 +16,7 @@ module.exports = {
     },
     mode: 'development',
     target: 'web',
-    devtool: 'source-map',
+    devtool: 'inline-source-map',
     module: {
         rules: [
             {

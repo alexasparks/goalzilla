@@ -20,9 +20,9 @@ app.on('ready', () => {
         titleBarStyle: 'hidden',
     });
 
-    if (process.env.NODE_ENV === "development") {
+    // if (process.env.NODE_ENV === "development") {
 		win.loadURL("http://localhost:3001")
-	} else {
-		win.loadFile(path.join(__dirname, '..', "index.html"))
-	}
+	// } else {
+	// 	win.loadFile(path.join(__dirname, '..', "index.html"))
+	// }
 });

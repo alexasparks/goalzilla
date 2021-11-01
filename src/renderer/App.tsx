@@ -7,7 +7,7 @@ import { hot } from 'react-hot-loader';
 export const App: React.FC = () => (
     <>
         <div>Hello World from App!</div>
-        <Button clickHandler={() => console.log('clicked')} name="button" buttonText="click here" />
+        <Button clickHandler={() => console.log('clicked')} name="button" buttonText="click there" />
     </>
 );
 
