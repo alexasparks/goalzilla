@@ -1,21 +1,23 @@
 import path from 'path';
-import { app, BrowserWindow, ipcMain } from 'electron';
+import { app, BrowserWindow } from 'electron';
+import installExtension, { REACT_DEVELOPER_TOOLS } from 'electron-devtools-installer';
+
+app.whenReady().then(async () => {
+    try {
+        await installExtension(REACT_DEVELOPER_TOOLS);
+    } catch (e) {
+        console.error('Could not load react devtools: ', e);
+    }
+})
 
 app.on('ready', () => {
-    // Example of adding a listener for hello-world event the ContextBridge
-    ipcMain.on('hello-world', () => {
-        console.log('Hello world from Main thread!');
-    });
-
     const win = new BrowserWindow({
         width: 500,
         height: 500,
         webPreferences: {
             sandbox: true,
-            preload: path.join(__dirname, 'preload.js'),
         },
     });
-
 
     if (process.env.NODE_ENV === "development") {
 		win.loadURL("http://localhost:3001")

@@ -9,9 +9,10 @@ type ButtonProps = {
 }
 
 export const Button: React.FC<ButtonProps> = ({ buttonText, type = 'button', disabled, name, clickHandler }) => {
+    console.log('Button rendered')
     return (
         <button
-            className="rounded-full bg-purple-200 hover:bg-purple-400 h-24 w-24 flex items-center justify-center ripple"
+            className="rounded-full bg-purple-200 hover:bg-purple-400 h-24 w-24 flex items-center justify-center"
             type={type}
             onClick={clickHandler}
             disabled={disabled}
