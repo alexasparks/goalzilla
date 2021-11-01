@@ -1,6 +1,6 @@
-# Electron + React + TypeScript quick start
+# Goalzilla
 
-Quick start for building new projects with Electron + React + TypeScript.
+Goal tracking app with Pomodoro flare.
 
 ## Getting Started
 
