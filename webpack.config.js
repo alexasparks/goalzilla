@@ -1,16 +1,34 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './src/renderer/index.tsx',
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: "./public/index.html",
+        }),
+    ],
+    devServer: {
+        port: 3001,
+        hot: true,
+    },
     mode: 'development',
-    target: 'electron-renderer',
-    devtool: 'inline-source-map',
+    target: 'web',
+    devtool: 'source-map',
     module: {
         rules: [
             {
-                test: /\.tsx?$/,
-                use: 'ts-loader',
+                test: /\.ts(x?)$/,
+                include: /src/,
                 exclude: /node_modules/,
+                use: [
+                    {
+                        loader: "babel-loader",
+                        options: {
+                            presets: ["@babel/preset-env"],
+                        },
+                    },
+                ],
             },
             {
                 test: /\.css$/i,

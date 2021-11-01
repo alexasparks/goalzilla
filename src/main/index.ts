@@ -9,11 +9,17 @@ app.on('ready', () => {
 
     const win = new BrowserWindow({
         width: 500,
-        height: 800,
+        height: 500,
         webPreferences: {
+            sandbox: true,
             preload: path.join(__dirname, 'preload.js'),
         },
     });
 
-    win.loadFile('public/index.html');
+
+    // if (process.env.NODE_ENV === "development") {
+		win.loadURL("http://localhost:3001")
+	// } else {
+	// 	win.loadFile(path.join(__dirname, '..', "index.html"))
+	// }
 });

@@ -1,12 +1,14 @@
 import "tailwindcss/tailwind.css"
+import "../../public/style.css"
 import React from 'react';
-import Test from './components/Test';
+import Button from "./components/atoms/Button";
+import { hot } from 'react-hot-loader';
 
 export const App: React.FC = () => (
     <>
-        <div className="bg-black">Hello World from App!</div>
-        <Test />
+        <div>Hello World from App!</div>
+        <Button clickHandler={() => console.log('clicked')} name="button" buttonText="click here" />
     </>
 );
 
-export default App;
+export default hot(module)(App);
