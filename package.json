@@ -1,7 +1,7 @@
 {
     "name": "goalzilla",
     "version": "1.0.0",
-    "description": "Goal tracking app with pomodoro flare",
+    "description": "Goal tracking app with Pomodoro flare",
     "main": "dist/main/index.js",
     "scripts": {
         "build": "tsc && webpack",
@@ -12,7 +12,7 @@
     "build": {
         "appId": "goalzilla",
         "mac": {
-            "category": "goalzilla.app.category.type"
+            "category": "public.app-category.productivity"
         },
         "files": [
             "./dist/**/*",
