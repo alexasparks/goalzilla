@@ -12,12 +12,13 @@ app.whenReady().then(async () => {
 
 app.on('ready', () => {
     const win = new BrowserWindow({
-        width: 500,
+        width: 850,
         height: 500,
         webPreferences: {
             sandbox: true,
         },
         titleBarStyle: 'hidden',
+        resizable: false,
     });
 
     // if (process.env.NODE_ENV === "development") {
