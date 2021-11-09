@@ -1,8 +1,8 @@
 export type Goal = {
     id: string;
     name?: string;
-    createdAt: Date;
-    progress?: Date[];
+    createdAt: string;
+    progress?: string[];
     done: boolean;
 }
 

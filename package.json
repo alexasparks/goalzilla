@@ -25,6 +25,8 @@
     "author": "Alexa Sparks",
     "license": "ISC",
     "dependencies": {
+        "apollo-server": "^3.5.0",
+        "graphql": "^16.0.1",
         "react": "^17.0.2",
         "react-dom": "^17.0.2"
     },

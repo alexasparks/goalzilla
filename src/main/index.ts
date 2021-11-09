@@ -1,10 +1,13 @@
-import path from 'path';
 import { app, BrowserWindow } from 'electron';
 import installExtension, { REACT_DEVELOPER_TOOLS } from 'electron-devtools-installer';
+import graphqlServer from './graphql';
 
 app.whenReady().then(async () => {
     try {
         await installExtension(REACT_DEVELOPER_TOOLS);
+        await graphqlServer.listen({ port: 5000 })
+
+        console.log('Apollo Server listening on port 5000! 🚀')
     } catch (e) {
         console.error('Could not load react devtools: ', e);
     }

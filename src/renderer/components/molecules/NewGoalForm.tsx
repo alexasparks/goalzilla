@@ -22,7 +22,7 @@ const NewGoalForm: React.FC<NewGoalFormProps> = ({ updateGoals }) => {
             goal: {
                 name,
                 id: Date.now().toString(),
-                createdAt: new Date(),
+                createdAt: Date.now().toString(),
                 done: false,
             },
         });
