@@ -10,7 +10,7 @@ export default {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         addGoal(parent, { goal }, { dataSources }) {
-            return dataSources.userData.addGoal(goal);
+            return dataSources.userData.add('goals.json', goal);
         }
     }
 }

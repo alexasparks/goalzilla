@@ -1,6 +1,13 @@
 import { gql } from 'apollo-server';
 
 const typeDefs = gql`
+    input GoalInput {
+        name: String,
+        createdAt: String,
+        progress: [String],
+        done: Boolean!,
+    }
+
     type Goal {
         id: ID!,
         name: String,
@@ -14,7 +21,7 @@ const typeDefs = gql`
     }
 
     type Mutation {
-        addGoal(name: String): Goal
+        addGoal(goal: GoalInput): [Goal]
     }
 `;
 
