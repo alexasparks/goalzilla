@@ -25,6 +25,7 @@
     "author": "Alexa Sparks",
     "license": "ISC",
     "dependencies": {
+        "@apollo/client": "^3.4.17",
         "apollo-server": "^3.5.0",
         "graphql": "^16.0.1",
         "react": "^17.0.2",

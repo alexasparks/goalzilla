@@ -2,6 +2,7 @@ import { gql } from 'apollo-server';
 
 const typeDefs = gql`
     input GoalInput {
+        id: ID!,
         name: String,
         createdAt: String,
         progress: [String],

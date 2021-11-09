@@ -8,7 +8,8 @@ const server = new ApolloServer({
     resolvers,
     dataSources: () => ({
         goalService: new GoalService(),
-    })
+    }),
+    introspection: true,
 });
 
 export default server;

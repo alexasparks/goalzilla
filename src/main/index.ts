@@ -6,9 +6,9 @@ app.whenReady().then(async () => {
     try {
         await installExtension(REACT_DEVELOPER_TOOLS);
         await installExtension(APOLLO_DEVELOPER_TOOLS);
-        await graphqlServer.listen({ port: 5000 })
+        const server = await graphqlServer.listen({ port: 5000 })
 
-        console.log('Apollo Server listening on port 5000! 🚀')
+        console.log(`Apollo Server listening at ${server.url}! 🚀`)
     } catch (e) {
         console.error('Could not load react devtools: ', e);
     }

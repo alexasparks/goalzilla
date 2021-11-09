@@ -34,7 +34,7 @@ export class UserDataService extends DataSource {
     /** Writes to a file if it exists */
     write(fileName: string, jsonData: string) {
         const filePath = `${this.userDataDir}/${fileName}`;
-
+        console.log('filePath: ', filePath);
         try {
             fs.writeFileSync(filePath, jsonData);
         } catch (error) {
@@ -43,14 +43,14 @@ export class UserDataService extends DataSource {
     }
 
     add(fileName: string, data: any) {
-        const existing = this.get(fileName);
+        const existing = this.get(fileName) ?? {};
 
-        if (existing) {
-            this.write(
-                fileName,
-                JSON.stringify({ ...existing, ...data }),
-            );
-        }
+        existing[data.id] = data;
+
+        this.write(
+            fileName,
+            JSON.stringify(existing),
+        );
     }
 
     delete(fileName: string, id: string) {
@@ -68,15 +68,18 @@ export class UserDataService extends DataSource {
     }
 
     update(fileName: string, data: any) {
+        let payload = data;
         const existing = this.get(fileName);
 
         if (existing) {
-            existing[data?.id] = data;
-
-            this.write(
-                fileName,
-                JSON.stringify(existing),
-            )
+            payload = {...existing, ...payload };
         }
+
+        this.write(
+            fileName,
+            JSON.stringify(payload),
+        );
+
+        return payload;
     }
 }

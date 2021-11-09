@@ -7,7 +7,8 @@
         "esModuleInterop": true,
         "jsx": "react-jsx",
         "allowJs": true,
-        "outDir": "dist/main"
+        "outDir": "dist/main",
+        "target": "es6",
     },
     "exclude": ["node_modules", "*.js"],
     "include": ["src/main"]
