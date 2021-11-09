@@ -5,7 +5,7 @@ type ButtonProps = {
     disabled?: boolean
     type?: 'button' | 'submit'
     name: string
-    clickHandler: () => void
+    clickHandler: (e: React.MouseEvent) => void
 }
 
 export const Button: React.FC<ButtonProps> = ({ buttonText, type = 'button', disabled, name, clickHandler }) => {

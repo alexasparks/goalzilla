@@ -6,10 +6,11 @@ type InputProps = {
     disabled?: boolean
     type?: 'text' | 'number'
     name: string
+    value: string
     changeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-export const Input: React.FC<InputProps> = ({ placeholderText, labelText, disabled, name, changeHandler, type = 'text' }) => {
+export const Input: React.FC<InputProps> = ({ placeholderText, labelText, disabled, name, changeHandler, type = 'text', value }) => {
     return (
         <span className="flex flex-col flex-1">
             <label className="text-gray-500 text-sm" htmlFor={name}>{labelText}</label>
@@ -18,6 +19,7 @@ export const Input: React.FC<InputProps> = ({ placeholderText, labelText, disabl
                 name={name}
                 disabled={disabled}
                 type={type}
+                value={value}
                 placeholder={placeholderText}
                 onChange={(e) => changeHandler(e)}
             />

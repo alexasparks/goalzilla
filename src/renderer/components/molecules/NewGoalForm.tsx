@@ -1,17 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from '../atoms/Button';
 import Input from '../atoms/Input';
+import { Action } from '../../types/Goal';
 
-const NewGoalForm: React.FC = () => {
+type NewGoalFormProps = {
+    updateGoals: React.Dispatch<Action>;
+}
+
+const NewGoalForm: React.FC<NewGoalFormProps> = ({ updateGoals }) => {
+    const [ name, updateName ] = useState('');
+
+    const addGoal = (e) => {
+        e.preventDefault();
+
+        if (name === '') {
+            return;
+        }
+
+        updateGoals({
+            type: 'add',
+            goal: {
+                name,
+                id: Date.now().toString(),
+                createdAt: new Date(),
+                done: false,
+            },
+        });
+
+        updateName('');
+    }
+
     return (
-        <div className="flex flex-grow-1 items-end justify-between">
+        <form className="flex flex-grow-1 items-end justify-between">
             <Input
                 name="new-goal"
                 labelText="Add Goal"
                 placeholderText="Work on Short Answer"
+                changeHandler={(e) => updateName(e.target.value)}
+                value={name}
             />
-            <Button />
-        </div>
+            <Button type="submit" name="add-new-goal" clickHandler={addGoal} buttonText="+" />
+        </form>
     )
 }
 
