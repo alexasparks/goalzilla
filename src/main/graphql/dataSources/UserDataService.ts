@@ -2,14 +2,7 @@ import fs from 'fs';
 import { app } from 'electron';
 import { DataSource } from 'apollo-datasource';
 
-export type Goal = {
-    id: string;
-    name?: string;
-    createdAt: string;
-    progress?: string[];
-    done: boolean;
-}
-export class UserData extends DataSource {
+export class UserDataService extends DataSource {
     public userDataDir: string;
 
     constructor() {
