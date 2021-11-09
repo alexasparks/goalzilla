@@ -12,6 +12,10 @@ const typeDefs = gql`
     type Query {
         existingGoals: [Goal],
     }
+
+    type Mutation {
+        addGoal(name: String): Goal
+    }
 `;
 
 export default typeDefs;
