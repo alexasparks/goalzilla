@@ -10,7 +10,7 @@ type NewGoalFormProps = {
 const NewGoalForm: React.FC<NewGoalFormProps> = ({ updateGoals }) => {
     const [ name, updateName ] = useState('');
 
-    const addGoal = (e) => {
+    const addGoal = (e: React.MouseEvent) => {
         e.preventDefault();
 
         if (name === '') {
