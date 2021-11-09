@@ -5,7 +5,6 @@ export const GoalsContext = createContext(null);
 export const DispatchGoals = createContext(null);
 
 function goalsReducer(existingGoals: Goal[], action: Action) {
-	console.log('existingGoals: ', existingGoals);
 	switch (action.type) {
 		case 'add': {
 			return [...existingGoals, {

@@ -7,11 +7,9 @@ import { GoalsDashboard } from "./components/pages/GoalsDashboard";
 
 export const App: React.FC = () => {
     return (
-        <div>
-            <GoalsProvider>
-                <GoalsDashboard />
-            </GoalsProvider>
-        </div>
+        <GoalsProvider>
+            <GoalsDashboard />
+        </GoalsProvider>
     );
 };
 

@@ -12,8 +12,8 @@ app.whenReady().then(async () => {
 
 app.on('ready', () => {
     const win = new BrowserWindow({
-        width: 850,
-        height: 500,
+        width: 900,
+        height: 550,
         webPreferences: {
             sandbox: true,
         },
